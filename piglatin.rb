@@ -36,7 +36,7 @@ class Piglatin
   end
 end
 
-puts Piglatin.convert("hahsfdss")
+puts Piglatin.convert("Kentucky")
 
 
 
