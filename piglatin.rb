@@ -12,7 +12,14 @@
 
 class Piglatin
 
+  def self.runner
+    puts "what word would you like to convert?"
+    str = gets.chomp
+    Piglatin.convert(str)
+  end
+
   def self.convert(str)
+    
     alpha = ('a'..'z').to_a
     vowels = %w[a e i o u]
     consonants = alpha - vowels
@@ -20,23 +27,23 @@ class Piglatin
     if vowels.include?(str[0])
       str + 'ay'
     elsif consonants.include?(str[2]) && consonants.include?(str[3])
-      str[4..-1] + str[0..3] + 'ay'
+      return str[4..-1] + str[0..3] + 'ay'
 
     elsif consonants.include?(str[1]) && consonants.include?(str[2])
-      str[3..-1] + str[0..2] + 'ay'
+      return str[3..-1] + @str[0..2] + 'ay'
 
     elsif consonants.include?(str[0]) && consonants.include?(str[1])
-      str[2..-1] + str[0..1] + 'ay'
+      return str[2..-1] + str[0..1] + 'ay'
     
     elsif consonants.include?(str[0])
-      str[1..-1] + str[0] + 'ay'
+      return str[1..-1] + str[0] + 'ay'
     else
-      str 
+      return str 
     end
   end
 end
 
-puts Piglatin.convert("Kentucky")
+#puts Piglatin.runner
 
 
 
