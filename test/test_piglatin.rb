@@ -6,22 +6,19 @@ class TestPiglatin < Test::Unit::TestCase
 
 	def setup
 		@str = ("banana")
-		convertedstring = Piglatin.convert(@str)
-		assert_equal convertedstring, "ananabay"
+		@convertedstring = Piglatin.convert(@str)
+		
 
 		#method with shared setup that can be called for all methods. 
 		#these must be instance variables (@bob) for other classes to access. 
 	end
-	
-	def test_numbers_are_not_allowed 
-		str = @str
-		assert_equal str, "banana"
-		#assert_equals 
-		#if @str #is not (a..z)
+
+	def test_a_word
+		assert_equal "abletay", Piglatin.convert("table")
 	end
 
-	def test_confirm_entry_does_not_contain_numbers
-
+	def test_numbers_are_not_allowed_part_2
+		assert_equal "please enter a proper word", Piglatin.convert(55)
 	end
 
 end
