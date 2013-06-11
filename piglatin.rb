@@ -15,21 +15,17 @@ class Piglatin
   def self.runner
     puts "what word would you like to convert?"
     Piglatin.convert    
-    
+    str = gets.chomp
   end
 
-  def self.convert
-    
-    str = gets.chomp
-
+  def self.convert(str)
+  
     alpha = ('a'..'z').to_a
     vowels = %w[a e i o u]
     consonants = alpha - vowels
 
     if vowels.include?(str[0])
       str + 'ay'
-    elsif consonants.include?(str[2]) && consonants.include?(str[3])
-      return str[4..-1] + str[0..3] + 'ay'
 
     elsif consonants.include?(str[1]) && consonants.include?(str[2])
       return str[3..-1] + @str[0..2] + 'ay'
@@ -40,12 +36,12 @@ class Piglatin
     elsif consonants.include?(str[0])
       return str[1..-1] + str[0] + 'ay'
     else
-      return str 
+      return "please enter a proper word. Numbers are not accepted"
     end
   end
 end
 
-puts Piglatin.runner
+#puts Piglatin.runner
 
 
 
