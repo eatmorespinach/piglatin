@@ -10,18 +10,14 @@
 #elsif 
 
 
-class Piglatin
-
-  def self.runner
-    puts "what word would you like to convert?"
-    Piglatin.convert    
-    str = gets.chomp
-  end
+class PiglatinConverter
 
   def self.convert(str)
   
     alpha = ('a'..'z').to_a
     vowels = %w[a e i o u]
+  
+
     consonants = alpha - vowels
 
     if vowels.include?(str[0])
@@ -36,14 +32,12 @@ class Piglatin
     elsif consonants.include?(str[0])
       return str[1..-1] + str[0] + 'ay'
     else
-      return "please enter a proper word. Numbers are not accepted"
+      return "Please enter a proper word. Numbers are not accepted"
     end
   end
 end
 
-#puts Piglatin.runner
-
-
+puts PiglatinConverter.convert("table")
 
 
 

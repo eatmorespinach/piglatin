@@ -10,15 +10,24 @@ class TestPiglatin < Test::Unit::TestCase
 	end
 
 
-	def test_a_word
+	def test_a_word_single_consonant
 		assert_equal "abletay", Piglatin.convert("table")
 	end
 
+	def test_a_word_two_consonants
+		assert_equal "eedomfray", Piglatin.convert("freedom")
+	end
 
 
-	def test_numbers_are_not_allowed_part_2
+	def test_numbers_are_not_allowed
 		assert_equal "please enter a proper word. Numbers are not accepted", Piglatin.convert(55)
 	end
+
+	def
+
+	end
+
+
 
 end
 
