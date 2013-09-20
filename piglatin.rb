@@ -1,28 +1,26 @@
 class Piglatin
 
-  def initialize(word)
-    @word = word
-    @vowels = ["a","e","i","o","u"]
-    @first_half = []
-  end
+  def self.convert(word)
+    word = word
+    vowels = ["a","e","i","o","u"]
+    first_half = []
 
-  def word
-    word_array = @word.split(//)
+    word_array = word.split(//)
     
-    if @vowels.include?(word_array[0])
+    if vowels.include?(word_array[0])
       word_array << "way"
       puts word_array.join("").inspect
     
     else 
       word_array.each_with_index do |letter, index|
       
-      unless @vowels.include?(word_array[index]) 
-        @first_half << letter
-      end
+        unless vowels.include?(word_array[index]) 
+          first_half << letter
+        end
 
-        if @vowels.include?(word_array[index])
+        if vowels.include?(word_array[index])
           word_array.shift(index)
-          word_array << @first_half << "ay"
+          word_array << first_half << "ay"
           puts word_array.join("").inspect
           break
         end
@@ -31,11 +29,11 @@ class Piglatin
   end
 end
 
+translate = Piglatin.new
 
-animal = Piglatin.new("animal")
-featherword = Piglatin.new("camel")
-test = Piglatin.new("fffffffffffeather")
+p "Hey there! Enter word for us to translate into Piglatin"
 
-animal.word
-featherword.word
-test.word
+loop do
+    translate = Piglatin.convert(gets.chomp) 
+end
+
