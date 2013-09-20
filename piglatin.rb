@@ -9,7 +9,7 @@ class Piglatin
     
     if vowels.include?(word_array[0])
       word_array << "way"
-      puts word_array.join("").inspect
+      puts word_array.join("")
     
     else 
       word_array.each_with_index do |letter, index|
@@ -34,6 +34,7 @@ translate = Piglatin.new
 p "Hey there! Enter word for us to translate into Piglatin"
 
 loop do
-    translate = Piglatin.convert(gets.chomp) 
+    translate = gets.chomp
+    translate == "quit" ? break : Piglatin.convert(translate)
 end
 
